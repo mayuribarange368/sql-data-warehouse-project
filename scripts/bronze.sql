@@ -93,7 +93,7 @@ CREATE TABLE bronze.erp_PX_CAT_G1V2(
 GO
 /*
 ===============================================================================
-DDL Script: Create Bronze Tables
+Insert Script: INSERT BUL data to Bronze Tables
 ===============================================================================
 Script Purpose:
     This script inserts raw data into all the tables in bronze, truncatind existing data in tables 
