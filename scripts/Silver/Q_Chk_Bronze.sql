@@ -1,9 +1,9 @@
+-----Check raw data bronze.crm_cust_info
 SELECT *
 FROM bronze.crm_cust_info;
 
 --Check Primary key(Any NULL or duplicates present)
 --Expectation : No result
-
 SELECT
 cst_id,
 COUNT(*) 
@@ -12,7 +12,6 @@ GROUP BY cst_id
 having COUNT(*) >1 OR cst_id IS NULL
 
 --Correction Query
-
 SELECT *
 FROM
 (SELECT 
@@ -26,13 +25,21 @@ SELECT COUNT(cst_id) FROM bronze.crm_cust_info;
 
 --Check unwanted spaces in string value
 --Expectation : No result
-
 SELECT 
 cst_key
 FROM bronze.crm_cust_info
 WHERE cst_key != TRIM(cst_key)
 
+
+
+PRINT '====================================================='
+PRINT 'INSERTING CLEADN DATA INTO silver.crm_cust_info TABLE'
+PRINT '====================================================='
 --Correction query
+
+
+TRUNCATE table silver.crm_cust_info
+
 INSERT INTO silver.crm_cust_info ( 
     cst_id,
     cst_key,
@@ -58,5 +65,15 @@ CASE
     ELSE 'n/a'
 END cst_gndr,
 cst_create_date
-FROM bronze.crm_cust_info
+FROM 
+    (SELECT 
+        *,
+        ROW_NUMBER() OVER ( PARTITION BY cst_id ORDER BY cst_create_date DESC ) AS flag_last
+    FROM bronze.crm_cust_info
+    WHERE cst_id IS NOT NULL
+    )t 
+WHERE flag_last =1;
 
+PRINT '====================================================='
+PRINT 'CLEADN DATA INSERTED INTO silver.crm_cust_info TABLE'
+PRINT '====================================================='
