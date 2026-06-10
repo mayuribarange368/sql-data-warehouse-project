@@ -65,7 +65,7 @@ PRINT'-------------------------END Check--------------------------------'
 -----------------------------------------------------------------------------------------------------
 
 PRINT '====================================================='
-PRINT 'INSERTING CLEADN DATA INTO silver.crm_cust_info TABLE'
+PRINT 'INSERTING CLEAN DATA INTO silver.crm_cust_info TABLE'
 PRINT '====================================================='
 -----Additional column with correct data type updated to the table
     
@@ -123,5 +123,5 @@ FROM
 WHERE flag_last =1;
 
 PRINT '====================================================='
-PRINT 'CLEADN DATA INSERTED INTO silver.crm_cust_info TABLE'
+PRINT 'CLEAN DATA INSERTED INTO silver.crm_cust_info TABLE'
 PRINT '====================================================='
