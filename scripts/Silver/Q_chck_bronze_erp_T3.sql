@@ -1,5 +1,5 @@
 PRINT'================================================================'
-PRINT'-----------Check Raw data of bronze.erp_LOC_A101---------------'
+PRINT'-----------Check Raw data of bronze.erp_PX_CAT_G1V2---------------'
 PRINT'================================================================'
 
 --Checking unwanted spaces
@@ -25,9 +25,11 @@ MAINTENANCE
 FROM bronze.erp_PX_CAT_G1V2
 
 PRINT'-------------------------END Check--------------------------------'
+   
 -------------------------------------------------------------------------------------------------------------
+
 PRINT '====================================================='
-PRINT 'INSERTING CLEADN DATA INTO silver.erp_LOC_A101 TABLE'
+PRINT 'INSERTING CLEADN DATA INTO silver.erp_PX_CAT_G1V2 TABLE'
 PRINT '====================================================='
 
 -----Additional column with correct data type updated to the table
@@ -43,7 +45,7 @@ MAINTENANCE NVARCHAR(50),
 dwh_create_date DATETIME2 DEFAULT GETDATE()
 );
 
------Insert data into Silver.crm_sales_details------------------
+-----Insert data into Silver.erp_PX_CAT_G1V2------------------
 TRUNCATE TABLE silver.erp_PX_CAT_G1V2;
 
  INSERT INTO silver.erp_PX_CAT_G1V2(
@@ -52,7 +54,7 @@ TRUNCATE TABLE silver.erp_PX_CAT_G1V2;
         SUBCAT,
         MAINTENANCE
 )
-
+    
 SELECT 
 ID,
 CAT,
@@ -61,5 +63,5 @@ MAINTENANCE
 FROM bronze.erp_PX_CAT_G1V2
 
 PRINT '====================================================='
-PRINT 'CLEADN DATA INSERTED INTO silver.erp_CUST_AZ12  TABLE'
+PRINT 'CLEAN DATA INSERTED INTO silver.erp_PX_CAT_G1V2 TABLE'
 PRINT '====================================================='
