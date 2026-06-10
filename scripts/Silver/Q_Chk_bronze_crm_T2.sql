@@ -1,3 +1,6 @@
+PRINT'================================================================'
+PRINT'-----------Check Raw data of bronze.crm_prd_info---------------'
+PRINT'================================================================'
 -------------------Quality check for T2 ----------------------------------
 ---Check duplicate prd_id
 SELECT 
@@ -73,11 +76,14 @@ SELECT
             -1, 
             LEAD (prd_start_dt) OVER (PARTITION BY prd_key ORDER BY prd_start_dt)
         ) AS prd_end_date
- FROM bronze.crm_prd_info
+ FROM bronze.crm_prd_info;
+
+PRINT'-------------------------END Check--------------------------------'
 
 --------------------------------------------------------------------------------------------------
+
 PRINT '====================================================='
-PRINT 'INSERTING CLEADN DATA INTO silver.crm_cust_info TABLE'
+PRINT 'INSERTING CLEAN DATA INTO silver.crm_prd_info TABLE'
 PRINT '====================================================='
 
 -----Additional column with correct data type updated to the table
@@ -96,6 +102,7 @@ CREATE TABLE silver.crm_prd_info(
   dwh_create_date DATETIME2 DEFAULT GETDATE()
 );
 
+-----Insert data into Silver.crm_prd_info------------------
 TRUNCATE TABLE silver.crm_prd_info;
 
 INSERT INTO silver.crm_prd_info(
@@ -131,5 +138,5 @@ SELECT
  FROM bronze.crm_prd_info
 
 PRINT '====================================================='
-PRINT 'CLEADN DATA INSERTED INTO silver.crm_cust_info TABLE'
+PRINT 'CLEAN DATA INSERTED INTO silver.crm_prd_info TABLE'
 PRINT '====================================================='
