@@ -35,9 +35,7 @@ CASE
     WHEN UPPER(TRIM(GEN)) IN ('M','Male') THEN 'Male'
     ELSE 'n/a'
 END AS GEN
-FROM bronze.erp_CUST_AZ12
-
-PRINT'-------------------------END Check--------------------------------'
+FROM bronze.erp_CUST_AZ12;
 -------------------------Final query -----------------------------------
 SELECT 
 CASE WHEN CID LIKE 'NAS%' THEN SUBSTRING(CID ,4,LEN(CID))
@@ -53,9 +51,12 @@ CASE
     ELSE 'n/a'
 END AS GEN
 FROM bronze.erp_CUST_AZ12;
+PRINT'-------------------------END Check--------------------------------'
+
+---------------------------------------------------------------------------------------------------------
 
 PRINT '====================================================='
-PRINT 'INSERTING CLEADN DATA INTO silver.erp_CUST_AZ12 TABLE'
+PRINT 'INSERTING CLEAN DATA INTO silver.erp_CUST_AZ12 TABLE'
 PRINT '====================================================='
 
 -----Additional column with correct data type updated to the table
@@ -70,7 +71,7 @@ GEN NVARCHAR(50),
 dwh_create_date DATETIME2 DEFAULT GETDATE()
 );
 
------Insert data into Silver.crm_sales_details------------------
+-----Insert data into Silver.erp_CUST_AZ12 Table------------------
 TRUNCATE TABLE silver.erp_CUST_AZ12;
 
  INSERT INTO silver.erp_CUST_AZ12(
@@ -93,7 +94,7 @@ CASE
     ELSE 'n/a'
 END AS GEN
 FROM bronze.erp_CUST_AZ12;
-------------------------------------------------------------------------------------------------
+
 PRINT '====================================================='
-PRINT 'CLEADN DATA INSERTED INTO silver.erp_CUST_AZ12  TABLE'
+PRINT 'CLEAN DATA INSERTED INTO silver.erp_CUST_AZ12  TABLE'
 PRINT '====================================================='
