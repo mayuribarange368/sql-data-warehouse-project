@@ -36,7 +36,7 @@ PRINT'-------------------------END Check--------------------------------'
 --------------------------------------------------------------------------------------------------------
      
 PRINT '====================================================='
-PRINT 'INSERTING CLEADN DATA INTO silver.erp_LOC_A101 TABLE'
+PRINT 'INSERTING CLEAN DATA INTO silver.erp_LOC_A101 TABLE'
 PRINT '====================================================='
 
 -----Additional column with correct data type updated to the table
@@ -51,7 +51,7 @@ dwh_create_date DATETIME2 DEFAULT GETDATE()
 );
 
 -----Insert data into Silver.crm_sales_details------------------
-TRUNCATE TABLE silver.erp_LOC_A101
+TRUNCATE TABLE silver.erp_LOC_A101;
 
  INSERT INTO silver.erp_LOC_A101(
    CID,
@@ -68,5 +68,5 @@ END CNTRY
 FROM bronze.erp_LOC_A101;
 
 PRINT '====================================================='
-PRINT 'CLEADN DATA INSERTED INTO silver.erp_CUST_AZ12  TABLE'
+PRINT 'CLEAN DATA INSERTED INTO silver.erp_LOC_A101 TABLE'
 PRINT '====================================================='
