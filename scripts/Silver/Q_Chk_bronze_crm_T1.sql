@@ -1,3 +1,7 @@
+PRINT'================================================================'
+PRINT'-----------Check Raw data of bronze.crm_cust_info---------------'
+PRINT'================================================================'
+    
 -----Check raw data bronze.crm_cust_info
 SELECT *
 FROM bronze.crm_cust_info;
@@ -29,8 +33,7 @@ SELECT
 cst_key
 FROM bronze.crm_cust_info
 WHERE cst_key != TRIM(cst_key)
-
-----------END Check ----------------------------------------
+    
 ----------FINAL Clean data query for T1---------------------
 SELECT 
 cst_id,
@@ -57,15 +60,32 @@ FROM
     )t 
 WHERE flag_last =1;
 
+PRINT'-------------------------END Check--------------------------------'
+    
 -----------------------------------------------------------------------------------------------------
 
 PRINT '====================================================='
 PRINT 'INSERTING CLEADN DATA INTO silver.crm_cust_info TABLE'
 PRINT '====================================================='
---Correction query
+-----Additional column with correct data type updated to the table
+    
+IF OBJECT_ID('silver.crm_cust_info','U') IS NOT NULL
+    DROP TABLE(silver.crm_cust_info);
 
+CREATE TABLE silver.crm_cust_info(
+    cst_id INT,
+    cst_key NVARCHAR(50),
+    cst_firstname NVARCHAR(50),
+    cst_lastname NVARCHAR(50),
+    cst_marital_status NVARCHAR(50),
+    cst_gndr NVARCHAR(50),
+    cst_create_date DATE,
+    dwh_create_date DATETIME2 DEFAULT GETDATE()
+    );
 
-TRUNCATE table silver.crm_cust_info
+-----Insert data into silver.crm_cust_info------------------   
+
+TRUNCATE table silver.crm_cust_info;
 
 INSERT INTO silver.crm_cust_info ( 
     cst_id,
@@ -74,7 +94,8 @@ INSERT INTO silver.crm_cust_info (
     cst_lastname,
     cst_marital_status,
     cst_gndr,
-    cst_create_date)
+    cst_create_date
+)
 
 SELECT 
 cst_id,
