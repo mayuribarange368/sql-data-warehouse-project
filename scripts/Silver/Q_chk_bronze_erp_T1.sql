@@ -53,3 +53,47 @@ CASE
     ELSE 'n/a'
 END AS GEN
 FROM bronze.erp_CUST_AZ12;
+
+PRINT '====================================================='
+PRINT 'INSERTING CLEADN DATA INTO silver.erp_CUST_AZ12 TABLE'
+PRINT '====================================================='
+
+-----Additional column with correct data type updated to the table
+
+IF OBJECT_ID ('silver.erp_CUST_AZ12', 'U') IS NOT NULL
+   DROP TABLE silver.erp_CUST_AZ12;
+
+CREATE TABLE silver.erp_CUST_AZ12(
+CID NVARCHAR(50),
+BDATE DATE,
+GEN NVARCHAR(50),
+dwh_create_date DATETIME2 DEFAULT GETDATE()
+);
+
+-----Insert data into Silver.crm_sales_details------------------
+TRUNCATE TABLE silver.erp_CUST_AZ12;
+
+ INSERT INTO silver.erp_CUST_AZ12(
+   CID,
+   BDATE,
+   GEN
+)
+
+SELECT 
+CASE WHEN CID LIKE 'NAS%' THEN SUBSTRING(CID ,4,LEN(CID))
+     ELSE CID
+END AS CID,
+CASE 
+    WHEN BDATE> GETDATE() THEN NULL
+    ELSE BDATE
+END AS BDATE,
+CASE 
+    WHEN UPPER(TRIM(GEN)) IN ('F','Female') THEN 'Female'
+    WHEN UPPER(TRIM(GEN)) IN ('M','Male') THEN 'Male'
+    ELSE 'n/a'
+END AS GEN
+FROM bronze.erp_CUST_AZ12;
+------------------------------------------------------------------------------------------------
+PRINT '====================================================='
+PRINT 'CLEADN DATA INSERTED INTO silver.erp_CUST_AZ12  TABLE'
+PRINT '====================================================='
