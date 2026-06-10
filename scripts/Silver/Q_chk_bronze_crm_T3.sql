@@ -10,7 +10,6 @@ FROM bronze.crm_sales_details
 WHERE sls_ord_num != TRIM(sls_ord_num)
 
 --Check can we connect sls_prd_key & sls_cust_id with customer and product table
-
 SELECT 
 *
 FROM bronze.crm_sales_details
@@ -108,8 +107,6 @@ CASE
 END AS sls_price
 FROM bronze.crm_sales_details
 
-PRINT'-------------------------END Check--------------------------------'
-
 ----------------------------Final cleaned data query---------------------
 
 SELECT 
@@ -142,9 +139,13 @@ SELECT
             ELSE sls_price
       END AS sls_price
 FROM bronze.crm_sales_details
+  
+PRINT'-------------------------END Check--------------------------------'
+  
 ------------------------------------------------------------------------------------------------------------------
+
 PRINT '====================================================='
-PRINT 'INSERTING CLEADN DATA INTO silver.crm_sales_deatils TABLE'
+PRINT 'INSERTING CLEAN DATA INTO silver.crm_sales_deatils TABLE'
 PRINT '====================================================='
 
 -----Additional column with correct data type updated to the table
@@ -212,7 +213,7 @@ SELECT
 
 
 PRINT '====================================================='
-PRINT 'CLEADN DATA INSERTED INTO silver.crm_cust_info TABLE'
+PRINT 'CLEAN DATA INSERTED INTO silver.crm_sales_details TABLE'
 PRINT '====================================================='
 
 
