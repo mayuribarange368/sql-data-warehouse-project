@@ -32,3 +32,41 @@ END CNTRY
 FROM bronze.erp_LOC_A101;
 
 PRINT'-------------------------END Check--------------------------------'
+     
+--------------------------------------------------------------------------------------------------------
+     
+PRINT '====================================================='
+PRINT 'INSERTING CLEADN DATA INTO silver.erp_LOC_A101 TABLE'
+PRINT '====================================================='
+
+-----Additional column with correct data type updated to the table
+
+IF OBJECT_ID ('silver.erp_LOC_A101', 'U') IS NOT NULL
+   DROP TABLE silver.erp_LOC_A101;
+
+CREATE TABLE silver.erp_LOC_A101(
+CID NVARCHAR(50),
+CNTRY NVARCHAR(50),
+dwh_create_date DATETIME2 DEFAULT GETDATE()
+);
+
+-----Insert data into Silver.crm_sales_details------------------
+TRUNCATE TABLE silver.erp_LOC_A101
+
+ INSERT INTO silver.erp_LOC_A101(
+   CID,
+   CNTRY
+)
+
+SELECT 
+REPLACE(CID,'-', '')CID,
+CASE WHEN TRIM(CNTRY) IN ('US', 'USA') THEN 'United States'
+     WHEN TRIM(CNTRY) = 'DE' THEN 'Germany'
+     WHEN CNTRY ='' OR CNTRY IS NULL THEN 'n/a'
+     ELSE CNTRY
+END CNTRY
+FROM bronze.erp_LOC_A101;
+
+PRINT '====================================================='
+PRINT 'CLEADN DATA INSERTED INTO silver.erp_CUST_AZ12  TABLE'
+PRINT '====================================================='
