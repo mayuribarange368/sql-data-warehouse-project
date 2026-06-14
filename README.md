@@ -1,12 +1,12 @@
-📊 Data Warehouse and Analytics Project
+Data Warehouse and Analytics Project
 
 ----------------------------------------------------------------------------------------------------
-🚀 About the Project
+About the Project
 This project focuses on building a complete data warehouse and analytics solution from end to end. The goal is to take raw data from different systems and transform it into meaningful insights that can support business decisions.
 It is designed as a portfolio project to demonstrate practical knowledge of data engineering and data analytics concepts, following industry best practices.
 
 ----------------------------------------------------------------------------------------------------
-📌 Project Overview
+Project Overview
 In this project, I worked on multiple aspects of data handling and analytics:
 1.Data Architecture
 Designed a modern data warehouse using the Medallion Architecture, which includes Bronze, Silver, and Gold layers.
@@ -19,7 +19,7 @@ Developed SQL-based reports to generate insights and support data-driven decisio
 
 ------------------------------------------------------------------------------------------------------
 
-🛠️ Tools Used
+Tools Used
 
 SQL Server Express – Used as the database to store and manage data
 SQL Server Management Studio (SSMS) – Used for writing queries and managing the database
@@ -27,8 +27,8 @@ Git Repository – Used for version control and collaboration
 Draw.io – Used to design data architecture and data flow diagrams
 
 -------------------------------------------------------------------------------------------------------
-📋 Project Requirements
-🏗️ Building the Data Warehouse
+Project Requirements
+* Building the Data Warehouse
 Objective:
 To develop a modern data warehouse using SQL Server that consolidates sales data and enables analytical reporting.
 
@@ -39,7 +39,7 @@ Key Activities:
 4.Focused only on the latest dataset (historical tracking was not required)
 5.Documented the data model clearly for business and analytics users
 
-📈 Analytics & Reporting
+* Analytics & Reporting
 Objective:
 To create SQL-based analytics that provide meaningful business insights.
 Insights Generated:
@@ -47,7 +47,8 @@ Insights Generated:
 Customer behavior
 Product performance
 Sales trends
-🏛️ Data Architecture
+
+*Data Architecture
 The project follows the Medallion Architecture, which organizes data into three layers:
 1.Bronze Layer
 Stores raw data exactly as it comes from source systems (CSV files).
@@ -57,10 +58,7 @@ Cleans, standardizes, and transforms data to make it ready for analysis.
 Contains business-ready data structured using a star schema, making it efficient for reporting and analytics.
 
 -------------------------------------------------------------------------------------------------------
-✅ Summary
+Summary
 Overall, this project demonstrates how raw data can be transformed into a structured, reliable, and analytics-ready system. It reflects a real-world approach to building data pipelines and generating insights that help organizations make better decisions.
-
-
-
 This project reflects how organizations actually build systems for data-driven decision making.
   
