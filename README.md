@@ -37,15 +37,15 @@ Analytics & Reporting
 
 Objective
 Develope SQL-based analytics to deliver detailed insights into:
-*Customer Behavior
-*Product Performance
-*Sales Trens
+* Customer Behavior
+* Product Performance
+* Sales Trens
 
 -----------------------------------------------------------------------------------------------------------------------------
 Data Architecture
 The data architecture for this project follows Medallion Architecture Bronze,Silver & Gold Layers:
 1.Bronze Layer: Stores raw data as-is from the source systems: Data is ingested from csv. files into SQL Server Database.
-2.Silver Layer: This layer includes data cleansing, standarization, and normalization processes to prepare data for analuysis.
+2.Silver Layer: This layer includes data cleansing, standarization, and normalization processes to prepare data for             analuysis.
 3.Gold Layer: Houses bussiness ready data modeled into a star schema required for reporting and analutics.
 
 ----------------------------------------------------------------------------------------------------------------------------
