@@ -9,6 +9,7 @@ It is designed as a portfolio project to demonstrate practical knowledge of data
 Project Overview
 
 In this project, I worked on multiple aspects of data handling and analytics:
+
 1.Data Architecture
 Designed a modern data warehouse using the Medallion Architecture, which includes Bronze, Silver, and Gold layers.
 
@@ -34,6 +35,7 @@ Draw.io – Used to design data architecture and data flow diagrams
 Project Requirements
 
 * Building the Data Warehouse
+  
 Objective: To develop a modern data warehouse using SQL Server that consolidates sales data and enables analytical reporting.
 
 Key Activities:
@@ -44,6 +46,7 @@ Key Activities:
 5.Documented the data model clearly for business and analytics users
 
 * Analytics & Reporting
+  
 Objective:
 To create SQL-based analytics that provide meaningful business insights.
 Insights Generated:
@@ -52,7 +55,8 @@ Insights Generated:
 2. Product performance
 3. Sales trends
 
-*Data Architecture
+* Data Architecture
+
 The project follows the Medallion Architecture, which organizes data into three layers:
 
 1.Bronze Layer
