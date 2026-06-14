@@ -39,10 +39,15 @@ Project Requirements
 Objective: To develop a modern data warehouse using SQL Server that consolidates sales data and enables analytical reporting.
 
 Key Activities:
+
 1.Imported data from two source systems (ERP and CRM) provided as CSV files
+
 2.Performed data cleaning to resolve data quality issues
+
 3.Combined data into a single, user-friendly model optimized for analysis
+
 4.Focused only on the latest dataset (historical tracking was not required)
+
 5.Documented the data model clearly for business and analytics users
 
 * Analytics & Reporting
