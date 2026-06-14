@@ -1,52 +1,66 @@
-Data Warehouse and Analytics Project
-----------------------------------------------------------------------------------------------------------------------------
-Welcome to the Data Warehouse and Analystics Project repository!!
-The project demonstrate a comprehensive data warehouse and analystics solutions,from building a data warehouse to genertating actionable insights.Designed as a portfolio project, it highlights industry best practices in data engineering and data analytics.
+📊 Data Warehouse and Analytics Project
 
------------------------------------------------------------------------------------------------------------------------------
-Project Overview
-This projecf involves
-1.Data Architecture: Designing a modern Data Warehouse Using Medallion Architecture Bronze, Silver,and Gold layers.
-2.ETL Piplines: Extracting , Transforming, and Loading data from source systems into the warehouse.
-3.Data Modeling: Developing fact and dimesions tables optimized for analytical queries.
-4.Analytics & Reporting: Creating SQL-based reports and dashboards for actionable insights.
+----------------------------------------------------------------------------------------------------
+🚀 About the Project
+This project focuses on building a complete data warehouse and analytics solution from end to end. The goal is to take raw data from different systems and transform it into meaningful insights that can support business decisions.
+It is designed as a portfolio project to demonstrate practical knowledge of data engineering and data analytics concepts, following industry best practices.
 
------------------------------------------------------------------------------------------------------------------------------
-Tools used:-
-1.SQL Server Express- Lightweight Server for hosting SQL database
-2.SQL Server Management studio(SSMS) -GUI for managing and interacting with database.
-3.Git Repository-TO manage and collabrate code efficently
-4.Draw.io- Design data architecture,models,,flows and diagrams.
+----------------------------------------------------------------------------------------------------
+📌 Project Overview
+In this project, I worked on multiple aspects of data handling and analytics:
+1.Data Architecture
+Designed a modern data warehouse using the Medallion Architecture, which includes Bronze, Silver, and Gold layers.
+2.ETL Pipelines
+Built processes to extract, transform, and load (ETL) data from source systems into the data warehouse.
+3.Data Modeling
+Created fact and dimension tables optimized for analytical queries and reporting.
+4.Analytics & Reporting
+Developed SQL-based reports to generate insights and support data-driven decision-making.
 
------------------------------------------------------------------------------------------------------------------------------
-Project Requirments
+------------------------------------------------------------------------------------------------------
 
-Building the Data Warehouse 
+🛠️ Tools Used
 
-Objective
-Develope a modern data warehouse using SQL Server to consolidate sales data,enabling analytical reporting and informed decision making.
-Specifications:
-* Data Sources: Import data from two source systems(ERP and CRM) present in CSV. files.
-* Data Quality: Cleanse and resolve data quality issues prior to analysis.
-* Integration: Combine both sources into single user freindly data model designed for analutical queries.
-* Scope: Focus on the latest dataset only,historization of data is not required.
-* Documentation: Provide clear documentation of thet data model to support bussiness stakholders and analytics teams.
+SQL Server Express – Used as the database to store and manage data
+SQL Server Management Studio (SSMS) – Used for writing queries and managing the database
+Git Repository – Used for version control and collaboration
+Draw.io – Used to design data architecture and data flow diagrams
 
-----------------------------------------------------------------------------------------------------------------------------
-Analytics & Reporting
+-------------------------------------------------------------------------------------------------------
+📋 Project Requirements
+🏗️ Building the Data Warehouse
+Objective:
+To develop a modern data warehouse using SQL Server that consolidates sales data and enables analytical reporting.
 
-Objective
-Develope SQL-based analytics to deliver detailed insights into:
-* Customer Behavior
-* Product Performance
-* Sales Trens
+Key Activities:
+1.Imported data from two source systems (ERP and CRM) provided as CSV files
+2.Performed data cleaning to resolve data quality issues
+3.Combined data into a single, user-friendly model optimized for analysis
+4.Focused only on the latest dataset (historical tracking was not required)
+5.Documented the data model clearly for business and analytics users
 
------------------------------------------------------------------------------------------------------------------------------
-Data Architecture
-The data architecture for this project follows Medallion Architecture Bronze,Silver & Gold Layers:
-1.Bronze Layer: Stores raw data as-is from the source systems: Data is ingested from csv. files into SQL Server Database.
-2.Silver Layer: This layer includes data cleansing, standarization, and normalization processes to prepare data for             analuysis.
-3.Gold Layer: Houses bussiness ready data modeled into a star schema required for reporting and analutics.
+📈 Analytics & Reporting
+Objective:
+To create SQL-based analytics that provide meaningful business insights.
+Insights Generated:
 
-----------------------------------------------------------------------------------------------------------------------------
+Customer behavior
+Product performance
+Sales trends
+🏛️ Data Architecture
+The project follows the Medallion Architecture, which organizes data into three layers:
+1.Bronze Layer
+Stores raw data exactly as it comes from source systems (CSV files).
+2.Silver Layer
+Cleans, standardizes, and transforms data to make it ready for analysis.
+3.Gold Layer
+Contains business-ready data structured using a star schema, making it efficient for reporting and analytics.
+
+-------------------------------------------------------------------------------------------------------
+✅ Summary
+Overall, this project demonstrates how raw data can be transformed into a structured, reliable, and analytics-ready system. It reflects a real-world approach to building data pipelines and generating insights that help organizations make better decisions.
+
+
+
+This project reflects how organizations actually build systems for data-driven decision making.
   
