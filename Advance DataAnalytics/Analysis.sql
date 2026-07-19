@@ -1,3 +1,4 @@
+----------------------------------------------------------
 --Change -over-time Analysis
 --Analyze Sales Preformance Over Time.
 SELECT
@@ -11,6 +12,7 @@ WHERE order_date IS NOT NULL
 GROUP BY  Year(order_date),Month(order_date) 
 ORDER BY Year(order_date),Month(order_date) 
 
+------------------------------------------------------------	
 --Using DATETRUNC 
 --Analyze Sales Preformance Over Time.
 SELECT
@@ -23,6 +25,7 @@ WHERE order_date IS NOT NULL
 GROUP BY DATETRUNC(month,order_date) 
 ORDER BY DATETRUNC(month,order_date) 
 
+---------------------------------------------------------------------------------------------
 --Cumulative Analysis
 --Calculate the total sales per month
 --and the running total of the sales over time
@@ -41,6 +44,7 @@ WHERE order_date IS NOT NULL
 GROUP BY DATETRUNC(Month,order_date)
 )t
 
+-----------------------------------------------------------------------------------------------------------
 --Over year
 --Moving average price
 SELECT
@@ -59,6 +63,7 @@ WHERE order_date IS NOT NULL
 GROUP BY DATETRUNC(Year,order_date)
 )t
 
+-------------------------------------------------------------------------------------------------------
 --Performance Analysis
 /*Analyze the yearly performance of the products by comparing their sales to both
 the average sales performance of the product and the previous year's sales*/
@@ -93,7 +98,8 @@ CASE WHEN current_sales -LAG(current_sales) OVER(PARTITION BY product_name ORDER
 END py_change
 FROM Yearly_product_sales
 ORDER BY product_name,order_year
-  
+
+--------------------------------------------------------------------------------------------------------------------
 --Part-to-whole Analysis
 --Which categories contribute to the most to overall sales?
 WITH category_sales AS(
@@ -112,7 +118,8 @@ SUM(Total_Sales) OVER() Overall_Sales,
 CONCAT(ROUND((CAST(Total_Sales AS FLOAT)/SUM(Total_Sales) OVER())*100,2),'%') AS percentage_of_total
 FROM category_sales
 ORDER BY Total_Sales DESC
-  
+
+----------------------------------------------------------------------------------------------------------------
 --Data Segmentation
 /*Group customers into three segments based on their spending behavior:
 -VIP: at least 12months of the history and spending more than 5000.
